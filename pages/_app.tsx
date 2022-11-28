@@ -1,8 +1,17 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { QueryClient, QueryClientProvider } from "react-query";
+import SearchBar from "./components/SearchBar";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyApp() {
+  const queryClient = new QueryClient();
+  return (
+    <div className="p-3">
+      <QueryClientProvider client={queryClient}>
+        <SearchBar />
+      </QueryClientProvider>
+    </div>
+  );
 }
 
-export default MyApp
+export default MyApp;
